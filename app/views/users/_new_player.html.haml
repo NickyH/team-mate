@@ -1,0 +1,20 @@
+/ .row
+/   .large-3.columns
+/     = 'Add the new player\'s details'
+/     =render(:partial => 'shared/errors', :locals => {:object => @user})
+/     = form_for @user, :controller => :users, :action => :create, :remote => true do |f|
+/       = f.label :name
+/       = f.text_field :name
+/       = f.label :email
+/       = f.text_field :email
+/       = f.label :phone
+/       = f.text_field :phone
+/       = f.label :gender
+/       = f.text_field :gender
+/       = f.label :password
+/       = f.password_field :password
+/       = f.label :password_confirmation
+/       = f.password_field :password_confirmation
+/       = link_to('Cancel', '#', :'data-clear-form' => true, id: 'cancel', :class => 'button tiny radius alert')
+/       = f.submit nil, :class => 'button tiny radius success'
+/   .large-9.columns

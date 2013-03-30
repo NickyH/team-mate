@@ -1,0 +1,5 @@
+- if @auth.present?
+  - @auth.teams.each do |team|
+    %hr
+    = link_to team.team_name, '#', :'data-select-team' => team.team_name
+

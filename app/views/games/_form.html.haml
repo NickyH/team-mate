@@ -1,0 +1,13 @@
+.row
+  .large-3.columns
+    / =render(:partial => 'shared/errors', :locals => {:object => @team})
+    = form_tag import_games_path, multipart: true, :remote => true do
+      / = "Add games to #{@selected.name}"
+      = label_tag 'Enter competition name'
+      = text_field_tag :competition_name
+      = label_tag 'Import roster'
+      = file_field_tag :file
+      = hidden_field_tag :team_name, @selected.first.team_name
+      = link_to('Cancel', '#', :'data-clear-form' => true, id: 'cancel', :class => 'button tiny radius alert')
+      = submit_tag 'Import', :class => 'button tiny radius success'
+  .large-9.columns

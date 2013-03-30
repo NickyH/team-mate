@@ -1,0 +1,17 @@
+= form_for @auth, :html => {:multipart => true}, :remote => true do |f|
+  = f.label :name
+  = f.text_field :name, :autofocus => true
+  = f.label :email
+  = f.text_field :email
+  = f.label :phone
+  = f.text_field :phone
+  = f.label :gender
+  = f.text_field :gender
+  = f.label :other_teams
+  = f.text_field :other_teams
+  = f.label :posiitions
+  = f.text_field :positions
+  = f.label :image
+  = f.file_field :image
+  = link_to 'Cancel', '#', :'data-clear-form' => true, :class => 'button tiny radius alert'
+  = f.submit nil, :class => 'button tiny radius success'

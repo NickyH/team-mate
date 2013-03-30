@@ -1,0 +1,15 @@
+- if @auth.nil?
+  #create-user.ex2trigger= link_to('Manage a Team', new_user_path, :remote => true)
+  = link_to('Login', login_path, :remote => true, :class => 'button teamster-login', :"data-dropdown" => 'drop')
+
+
+
+/ #form
+
+#nav
+  = render :partial => 'layouts/nav'
+
+
+- if @auth.nil?
+  #drop.f-dropdown.content
+    = render :partial => 'session/form'

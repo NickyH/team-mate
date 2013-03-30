@@ -1,0 +1,13 @@
+= form_for @team, :url => teams_path, :remote => true do |f|
+    = f.label :team_name
+    = f.text_field :team_name
+    = f.label :sport
+    = f.text_field :sport
+    = f.label :timezone
+    = f.text_field :timezone
+    = f.label :team_gender
+    = f.text_field :team_gender
+    = f.hidden_field :manager, :value => @auth.name
+    = link_to('Cancel', '#', :'data-clear-form' => true, id: 'cancel', :class => 'button tiny radius alert')
+    = f.submit nil, :class => 'button tiny radius success'
+
