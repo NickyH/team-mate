@@ -6,9 +6,14 @@ class TeamsController < ApplicationController
     @teams = Team.order(:team_name)
     @team = Team.new
     @user = User.new
-    @selected = [@auth.teams.first]
-    # # find_next_game if @selected.first.games
-    # if !@selected.nil? && !@future_games.nil?
+    if @selected == nil
+      @selected = [@auth.teams.first]
+    end
+    # if !@selected.nil?
+    #   find_next_game
+    # else
+    #   @future_games = nil
+    # end
     #   @next_game = @future_games.first
     # end
     # if !@selected.nil? && !@future_games.nil? && !@currently_added.nil?
@@ -34,5 +39,7 @@ class TeamsController < ApplicationController
   def select_team
     @current_team = params[:team_name]
     @selected = Team.where(:team_name => @current_team) || @auth.teams.first
+    find_next_game
+    @next_game = @future_games.first || nil
   end
 end

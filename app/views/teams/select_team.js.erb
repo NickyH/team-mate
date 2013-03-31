@@ -1,2 +1,26 @@
 $('#photos').empty().append('<%=j render(:partial => 'photos') %>');
 $('#game-panel').empty().append('<%=j render(:partial => 'teams/game') %>');
+$(".draggable").draggable();
+
+var Drop;
+
+$("#droppable").droppable({
+  drop: Drop = function(event, ui) {
+    var game_id, token, user_id;
+    user_id = ui.draggable.find("img").attr("id");
+    game_id = $(".game").data("game-id");
+    token = $("#droppable").data("auth-token");
+    console.log(user_id, game_id, token);
+    $(this).addClass("ui-state-highlight").find("p").html("Players added!");
+    return $.ajax({
+      dataType: "script",
+      type: "post",
+      url: "/games/invite_player",
+      data: {
+        authenticity_token: token,
+        user_id: user_id,
+        game_id: game_id
+      }
+    }).done(window.location.reload());
+  }
+});

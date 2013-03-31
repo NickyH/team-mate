@@ -1,0 +1,4 @@
+-@invited.first.users.each do |user|
+  -binding.pry
+  .draggable.ui-widget-content= image_tag(user.image, :id => "#{user.id}")
+

@@ -28,8 +28,10 @@ class ApplicationController < ActionController::Base
   # end
 
   def find_next_game
+    team = params[:team_name]
+    team = Team.where(:team_name => team)
     future_games = []
-    @selected.first.games.each do |game|
+    team.first.games.each do |game|
       if game.date >= Date.today
         future_games << game
         @future_games = future_games.sort

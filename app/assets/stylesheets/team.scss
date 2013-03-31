@@ -26,8 +26,7 @@
   border: 1px solid #F21B42;
   vertical-align: middle;
   text-align: center;
-  margin-right: 300px;
-  float: right;
+  margin-right: 50px;
   box-shadow: 5px 5px 2px #888;
 }
 
@@ -41,9 +40,7 @@
   border: 1px solid #1397BA;
   vertical-align: middle;
   text-align: center;
-  margin-right: 300px;
-  margin-top: 100px;
-  float: right;
+  margin-right: 50px;
   box-shadow: 5px 5px 2px #888;
 }
 
@@ -254,12 +251,26 @@ button.team-modal
 #homepage
 {
   background-color: #433B50;
-  /*background-image: url("sports.jpeg");*/
-  background-repeat: no-repeat;
-  background-size: cover;
   width: 900px;
-  height: 600px;
+  height: 400px;
   border-radius: 20px;
   margin: 100px auto auto auto;
   box-shadow: 5px 5px 2px #888;
+  opacity: 0.75;
+}
+
+#homebuttons
+{
+  width: 900px;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+#homepage-image
+{
+  background-image: url('assets/team8.jpg');
+  width: 300px;
+
 }

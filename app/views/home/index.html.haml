@@ -1,9 +1,11 @@
+#homepage-image
+
 #homepage
+
+#homebuttons
   - if @auth.nil?
     = link_to('Manage a Team', new_user_path, :remote => true, :'data-reveal-id'=> "myModal", :class => 'button teamster-manager')
     = link_to('Login', login_path, :remote => true, :class => 'button teamster-login', :"data-dropdown" => 'drop')
-
-  / #form
 
   #nav
     = render :partial => 'layouts/nav'

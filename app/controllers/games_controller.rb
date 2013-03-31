@@ -25,6 +25,7 @@ class GamesController < ApplicationController
   def invite_player
     user = User.find(params[:user_id])
     game = Game.find(params[:game_id])
+    team = [game.team]
     added_to_list = Attendee.create
     added_to_list.status = "Added to game list"
     added_to_list.game_id = game.id
@@ -32,6 +33,13 @@ class GamesController < ApplicationController
     @select = Game.where(:id => game.id)
     @select.first.attendees << added_to_list
     @currently_added = @select.first.attendees
+    @added_to_list = game.attendees
+    all_players = User.where(:team_id => team.first.id)
+    all_user_id = all_players.map(&:id)
+    @invited_user_id = @added_to_list.map(&:user_id).uniq
+    @not_yet_invited = all_user_id - @invited_user_id
+    @not_invited = User.where(:id => @not_yet_invited)
+    @invited = User.where(:id => @invited_user_id)
   end
 end
 

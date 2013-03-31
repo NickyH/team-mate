@@ -2,6 +2,7 @@ User.delete_all
 Team.delete_all
 Game.delete_all
 Competition.delete_all
+Attendee.delete_all
 
 u1 = User.create(name: 'nicky', email: 'nickyhughes00@gmail.com', phone: '+13476091301', gender: 'female', other_teams: '', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'cheesecake1.jpeg')
 u2 = User.create(name: 'mandy', email: 'mandy@gmail.com', phone: '', gender: 'female', other_teams: '', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'cheesecake1.jpeg')
@@ -37,3 +38,4 @@ t1.users << u3 << u4 << u5 << u6 << u7 << u8 << u9
 t2.users << u4 << u5 << u6
 
 c1.games << g1 << g2 << g3 << g4 << g5 << g6
+t1.games << g1 << g2 << g3 << g4 << g5 << g6

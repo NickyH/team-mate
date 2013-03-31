@@ -18,7 +18,7 @@ class Home
           authenticity_token: token
           user_id: user_id
           game_id: game_id
-      ).done(window.location.reload())
+      ).done()
      });
 
   @clear_form: (e) ->

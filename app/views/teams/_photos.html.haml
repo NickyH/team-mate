@@ -1,2 +1,7 @@
--@selected.first.users.each do |user|
-  .draggable.ui-widget-content= image_tag(user.image, :id => "#{user.id}")
+-if !@not_invited == nil
+  -@not_invited.first.users.each do |user|
+    .draggable.ui-widget-content= image_tag(user.image, :id => "#{user.id}")
+-else
+  -@selected.first.users.each do |user|
+    .draggable.ui-widget-content= image_tag(user.image, :id => "#{user.id}")
+

@@ -7,11 +7,13 @@
     #droppable.ui-widget-header
       .game{:'data-game-id' => @next_game.id, :'data-auth-token' => form_authenticity_token}
       %p= 'Drag players to invite'
-      - if !@added_to_list.nil?
-        -@invited_user_id.each do |id|
-          - user = User.where(:id => id)
-          - image = user.image
-          #added-photos= image_tag(image)
+      #invited_players
+
+      / - if !@added_to_list.nil?
+      /   -@invited_user_id.each do |id|
+      /     - user = User.where(:id => id)
+      /     - image = user.image
+      /     #added-photos= image_tag(image)
 
 / -@invited_user_id.each do |id|
 /   - user = User.where(:id => id)
@@ -22,3 +24,6 @@
 / #map-canvas
 /   %script
 /     display_map(40.7316, -73.9901, 13);
+
+#photos
+  = render :partial => 'teams/photos'
