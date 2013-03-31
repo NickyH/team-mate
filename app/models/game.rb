@@ -22,6 +22,7 @@ class Game < ActiveRecord::Base
   belongs_to :team
   belongs_to :competition
   has_many :attendees
+  # before_save :geocode
 
   def self.open_spreadsheet(file)
     case File.extname(file.original_filename)
@@ -46,4 +47,13 @@ class Game < ActiveRecord::Base
     games
   end
 
-  end
+  # private
+  # def geocode
+  # result = Geocoder.search(self.address).first
+  # if result.present?
+  #   self.latitude = result.latitude
+  #   self.longitude = result.longitude
+  # end
+  # end
+
+end

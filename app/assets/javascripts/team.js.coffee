@@ -21,10 +21,6 @@ class Home
       ).done(window.location.reload())
      });
 
-  # @refresh_game: ->
-  #   $('#game-panel').empty()
-  #   console.log('here')
-
   @clear_form: (e) ->
     e.preventDefault()
     $('#form').empty()
@@ -35,19 +31,10 @@ class Home
     select_team =
       dataType: 'script'
       type: 'get'
-      url: '/teams'
+      url: '/teams/select_team'
       data: {team_name: team}
-    $.ajax()
+    $.ajax(select_team)
 
-  @update_status: (id) ->
-    console.log(id)
-    # user = $(this).data('select-team')
-    # select_team =
-    #   dataType: 'script'
-    #   type: 'get'
-    #   url: '/teams'
-    #   data: {team_name: team}
-    # $.ajax(select_team)
 
 $(document).ready(Home.document_ready)
 

@@ -8,7 +8,6 @@
       .game{:'data-game-id' => @next_game.id, :'data-auth-token' => form_authenticity_token}
       %p= 'Drag players to invite'
       - if !@added_to_list.nil?
-        - binding.pry
         -@invited_user_id.each do |id|
           - user = User.where(:id => id)
           - image = user.image

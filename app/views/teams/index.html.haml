@@ -1,6 +1,6 @@
 #team-nav
   .navlinks= link_to 'Edit Profile', edit_user_path(@auth), :remote => true
-  - if @auth.name == @selected.first.manager
+  - if @auth.name == @selected.manager
     .navlinks= link_to 'Create New Team', new_team_path, :remote => true
     .navlinks= link_to 'Add a Player', new_player_users_path(@auth), :remote => true, :'data-reveal-id'=> "myModal"
     .navlinks= link_to 'Add Games', new_game_path, :remote => true

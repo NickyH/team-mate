@@ -2,7 +2,11 @@ TeamMate::Application.routes.draw do
 
   root :to => 'home#index'
 
-  resources :teams
+  resources :teams do
+    collection do
+      get :select_team
+    end
+  end
 
   resources :competitions
 
