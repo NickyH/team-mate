@@ -5,10 +5,9 @@ class GamesController < ApplicationController
   end
   def new
     @game = Game.new
-    get_current_team
+    @selected = Team.where(:team_name => @auth.current_team)
   end
   def import
-    get_current_team
     competition = params[:competition_name]
     @games = Game.import(params[:file])
     @competition = Competition.new(name: competition)
@@ -16,6 +15,8 @@ class GamesController < ApplicationController
       @competition.games << game
     end
     @competition.start_date = @competition.games.first.date
+    team = @auth.current_team
+    @selected = Team.where(:team_name => team)
     @selected.first.games = @games
   end
   def show
@@ -25,7 +26,8 @@ class GamesController < ApplicationController
   def invite_player
     user = User.find(params[:user_id])
     game = Game.find(params[:game_id])
-    team = [game.team]
+    current_team = @auth.current_team
+    team = Team.where(:team_name => current_team)
     added_to_list = Attendee.create
     added_to_list.status = "Added to game list"
     added_to_list.game_id = game.id
@@ -40,6 +42,7 @@ class GamesController < ApplicationController
     @not_yet_invited = all_user_id - @invited_user_id
     @not_invited = User.where(:id => @not_yet_invited)
     @invited = User.where(:id => @invited_user_id)
+    @selected = team
   end
 end
 

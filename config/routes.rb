@@ -20,6 +20,7 @@ TeamMate::Application.routes.draw do
   resources :users do
     collection do
       get :new_player
+      post :create_new_player
     end
   end
 

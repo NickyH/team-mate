@@ -7,9 +7,12 @@ class UsersController < ApplicationController
     @user = User.new
   end
   def create
-    team = @auth.team_id
     @user = User.create(params[:user])
-    @user.team_id = team
+    @team = Team.create
+    @team.manager = @user.name
+    @team.team_name = @user.current_team
+    @user.teams << @team
+    @team.save
     @user.save
   end
   def show
@@ -17,8 +20,20 @@ class UsersController < ApplicationController
   def new_player
     @user = User.new
   end
+  def create_new_player
+    phone = params[:phone]
+    name = params[:name]
+    email = params[:email]
+    password = params[:password]
+    password_confirmation = params[:password_confirmation]
+    current_team = @auth.current_team
+    @user = User.create(name: name, phone: phone, email: email, password: password, password_confirmation: password_confirmation, current_team: current_team, is_manager: true)
+    team = Team.where(:team_name => current_team)
+    @user.teams << team
+    @user.save
+  end
   def edit
-    @user = User.find(params[:id])
+    @user = @auth
   end
   def update
     @auth.update_attributes(params[:user])

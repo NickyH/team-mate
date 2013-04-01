@@ -1,7 +1,5 @@
--if !@not_invited == nil
-  -@not_invited.first.users.each do |user|
-    .draggable.ui-widget-content= image_tag(user.image, :id => "#{user.id}")
--else
-  -@selected.first.users.each do |user|
-    .draggable.ui-widget-content= image_tag(user.image, :id => "#{user.id}")
+= 'Players'
+%hr
+-@selected.first.users.each do |user|
+  .draggable.ui-widget-content.has_tip= image_tag(user.image, :id => "#{user.id}", :'data-tooltip' => true, :title => user.name)
 

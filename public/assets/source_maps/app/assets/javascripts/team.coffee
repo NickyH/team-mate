@@ -23,17 +23,17 @@ class Home
 
   @clear_form: (e) ->
     e.preventDefault()
-    $('#form').empty()
+    $('#form').slideUp()
 
   @select_team: (e) ->
     e.preventDefault()
     team = $(this).data('select-team')
-    select_team =
+    settings =
       dataType: 'script'
       type: 'get'
       url: '/teams/select_team'
       data: {team_name: team}
-    $.ajax(select_team)
+    $.ajax(settings)
 
 
 $(document).ready(Home.document_ready)

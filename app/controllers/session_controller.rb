@@ -12,6 +12,7 @@ class SessionController < ApplicationController
       redirect_to(root_path)
     end
     authenticate
+    redirect_to(teams_path)
   end
   def destroy
     session[:user_id] = nil

@@ -6,7 +6,7 @@ class CreateUsersTable < ActiveRecord::Migration
       t.string :phone
       t.string :gender
       t.string :password_digest
-      t.text :other_teams
+      t.text :current_team
       t.text :positions
       t.text :image
       t.integer :team_id

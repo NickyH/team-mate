@@ -4,15 +4,15 @@ Game.delete_all
 Competition.delete_all
 Attendee.delete_all
 
-u1 = User.create(name: 'nicky', email: 'nickyhughes00@gmail.com', phone: '+13476091301', gender: 'female', other_teams: '', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'cheesecake1.jpeg')
-u2 = User.create(name: 'mandy', email: 'mandy@gmail.com', phone: '', gender: 'female', other_teams: '', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'cheesecake1.jpeg')
-u3 = User.create(name: 'chris', email: 'chris@gmail.com', phone: '', gender: 'female', other_teams: '', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'chris.JPG')
-u4 = User.create(name: 'jane', email: 'jane@gmail.com', phone: '', gender: 'f', other_teams: '', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'jane.JPG')
-u5 = User.create(name: 'gemma', email: 'gemma@gmail.com', phone: '', gender: 'f', other_teams: '', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'gemma.JPG')
-u6 = User.create(name: 'kate', email: 'kate@gmail.com', phone: '', gender: 'f', other_teams: '', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'kate.JPG')
-u7 = User.create(name: 'rachael', email: 'rachael@gmail.com', phone: '', gender: 'f', other_teams: '', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'rachael.JPG')
-u8 = User.create(name: 'sophie', email: 'sophie@gmail.com', phone: '', gender: 'f', other_teams: '', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'sophie.JPG')
-u9 = User.create(name: 'jess', email: 'jess@gmail.com', phone: '', gender: 'f', other_teams: '', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'jess.JPG')
+u1 = User.create(name: 'nicky', email: 'nickyhughes00@gmail.com', phone: '+13476091301', gender: 'female', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'cheesecake1.jpeg', current_team: 'Bubblebees')
+u2 = User.create(name: 'mandy', email: 'mandy@gmail.com', phone: '', gender: 'female', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'cheesecake1.jpeg', current_team: 'Bubblebees')
+u3 = User.create(name: 'chris', email: 'chris@gmail.com', phone: '', gender: 'female', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'chris.JPG', current_team: 'Bubblebees')
+u4 = User.create(name: 'jane', email: 'jane@gmail.com', phone: '', gender: 'f', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'jane.JPG', current_team: 'Bubblebees')
+u5 = User.create(name: 'gemma', email: 'gemma@gmail.com', phone: '', gender: 'f', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'gemma.JPG', current_team: 'Bubblebees')
+u6 = User.create(name: 'kate', email: 'kate@gmail.com', phone: '', gender: 'f', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'kate.JPG', current_team: 'Bubblebees')
+u7 = User.create(name: 'rachael', email: 'rachael@gmail.com', phone: '', gender: 'f', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'rachael.JPG', current_team: 'Bubblebees')
+u8 = User.create(name: 'sophie', email: 'sophie@gmail.com', phone: '', gender: 'f', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'sophie.JPG', current_team: 'Bubblebees')
+u9 = User.create(name: 'jess', email: 'jess@gmail.com', phone: '', gender: 'f', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'jess.JPG', current_team: 'Bubblebees')
 
 
 t1 = Team.create(team_name: 'Bubblebees', sport: 'netball', timezone: 'EST', team_gender: 'female', manager: 'chris')
@@ -32,7 +32,7 @@ u3.teams = [t1, t2]
 
 
 u1.is_admin = true
-u2.is_manager = true
+u3.is_manager = true
 
 t1.users << u3 << u4 << u5 << u6 << u7 << u8 << u9
 t2.users << u4 << u5 << u6

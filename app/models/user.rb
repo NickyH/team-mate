@@ -20,7 +20,7 @@
 
 class User < ActiveRecord::Base
   has_secure_password
-  attr_accessible :name, :email, :phone, :password, :password_confirmation, :gender, :other_teams, :positions, :is_manager, :is_admin, :image
+  attr_accessible :name, :email, :phone, :password, :password_confirmation, :gender, :current_team, :positions, :is_manager, :is_admin, :image
   has_many :teams
   has_many :attendees
   validates :email, :password_digest, :presence => true #may cause problems with new user creation

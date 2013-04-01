@@ -1,26 +1,14 @@
 class TeamsController < ApplicationController
   before_filter :authenticate
   # before_filter :find_next_game
-  # before_filter :check_if_logged_in
+  before_filter :check_if_logged_in
   def index
-    @teams = Team.order(:team_name)
+    @teams = @auth.teams
     @team = Team.new
     @user = User.new
-    if @selected == nil
-      @selected = [@auth.teams.first]
-    end
-    # if !@selected.nil?
-    #   find_next_game
-    # else
-    #   @future_games = nil
-    # end
-    #   @next_game = @future_games.first
-    # end
-    # if !@selected.nil? && !@future_games.nil? && !@currently_added.nil?
-    #   @added_to_list = @next_game.attendees
-    #   all_user_id = @selected.first.users.map(&:user_id)
-    #   @invited_user_id = @added_to_list.map(&:user_id)
-    #   @not_yet_invited = all_user_id - @invited_user_id
+    @selected = Team.where(:team_name => @auth.current_team)
+    # if @selected == nil && !@auth.teams.nil?
+    #   @selected = [@auth.teams.first] || nil
     # end
   end
   def edit
@@ -38,8 +26,13 @@ class TeamsController < ApplicationController
   end
   def select_team
     @current_team = params[:team_name]
-    @selected = Team.where(:team_name => @current_team) || @auth.teams.first
+    @auth.current_team = @current_team
     find_next_game
-    @next_game = @future_games.first || nil
+    if !@future_games.nil?
+      @next_game = @future_games.first
+    else
+      @next_game == nil
+    end
+    @selected = Team.where(:team_name => @current_team)
   end
 end

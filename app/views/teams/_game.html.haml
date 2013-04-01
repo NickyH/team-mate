@@ -1,13 +1,13 @@
 #game
   - if @next_game.nil?
-    %p= 'Add games to this team roster'
+    %p= 'Select team or add games to this team roster'
   - if !@next_game.nil?
     %p= 'Next ' + @selected.first.team_name + ' Game:'
-    %p= @next_game.date.stamp("Tue 25th March")
+    #game-details= @next_game.time.stamp("Tue 25th March, 7:00pm")
     #droppable.ui-widget-header
       .game{:'data-game-id' => @next_game.id, :'data-auth-token' => form_authenticity_token}
       %p= 'Drag players to invite'
-      #invited_players
+
 
       / - if !@added_to_list.nil?
       /   -@invited_user_id.each do |id|

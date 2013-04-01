@@ -1,14 +1,18 @@
-/ #myModal.reveal-modal
-/   = form_for @user, :remote => true do |f|
-/     = f.label :name
-/     = f.text_field :name, :autofocus => true
-/     = f.label :phone
-/     = f.text_field :phone
-/     = f.label :email
-/     = f.text_field :email
-/     = f.label :password
-/     = f.password_field :password
-/     = f.label :password_confirmation
-/     = f.password_field :password_confirmation
-/     = link_to 'Cancel', '#', :'data-clear-form' => true, :class => 'button tiny radius alert'
-/     = f.submit nil, :class => 'button tiny radius success'
+.row
+  .large-3.columns
+  .large-6.columns
+    = form_tag '/users/create_new_player', :remote => true do
+        = label_tag :name
+        = text_field_tag :name, :autofocus => true
+        = label_tag :phone
+        = text_field_tag :phone
+        = label_tag :email
+        = text_field_tag :email
+        = label_tag :password
+        = password_field_tag :password
+        = label_tag :password_confirmation
+        = password_field_tag :password_confirmation
+        = hidden_field_tag :current_team
+        = link_to 'x', '#', :'data-clear-form' => true, :class => 'close-reveal-modal'
+        = submit_tag nil, :class => 'button tiny radius success'
+  .large-3.columns

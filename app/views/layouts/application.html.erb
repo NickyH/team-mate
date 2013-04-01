@@ -13,14 +13,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div id='home-background'>
 <div id = 'body'><%= yield %></div>
+</div>
 <div id='footer'><%= render :partial => 'layouts/footer' %></div>
 
 
   <script>
   $(document).foundation();
   </script>
+
+ <%= javascript_include_tag 'foundation/js/foundation/foundation.tooltips.js' %>
+
+
 
 </body>
 </html>

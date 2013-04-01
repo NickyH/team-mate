@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(:version => 20130328214419) do
     t.string   "phone"
     t.string   "gender"
     t.string   "password_digest"
-    t.text     "other_teams"
+    t.text     "current_team"
     t.text     "positions"
     t.text     "image"
     t.integer  "team_id"
