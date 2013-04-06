@@ -7,6 +7,9 @@ class GamesController < ApplicationController
     @game = Game.new
     @selected = Team.where(:team_name => @auth.current_team)
   end
+  def edit
+    @game = Game.where(:id => params[:id])
+  end
   def import
     competition = params[:competition_name]
     @games = Game.import(params[:file])
@@ -43,6 +46,8 @@ class GamesController < ApplicationController
     @not_invited = User.where(:id => @not_yet_invited)
     @invited = User.where(:id => @invited_user_id)
     @selected = team
+  end
+  def result
   end
 end
 

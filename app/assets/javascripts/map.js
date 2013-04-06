@@ -1,9 +1,3 @@
-$(function(){
-
-  display_map(40.7316, -73.9901, 13);
-
-});
-
 var map;
 
 function display_map(lat, long, zoom)
@@ -16,4 +10,10 @@ function display_map(lat, long, zoom)
 
   var canvas = $('#map_canvas')[0];
   map = new google.maps.Map(canvas, mapOptions);
+}
+
+function add_marker(lat, long, title)
+{
+  var latlng = new google.maps.LatLng(lat, long);
+  var marker = new google.maps.Marker({position: latlng, map: map, title: title});
 }

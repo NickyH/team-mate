@@ -11,6 +11,6 @@
       = f.label :team_gender
       = f.text_field :team_gender
       = f.hidden_field :manager, :value => @auth.name
-      = link_to('Cancel', '#', :'data-clear-form' => true, id: 'cancel', :class => 'button tiny radius alert')
-      = f.submit nil, :class => 'button tiny radius success'
+      = link_to('Cancel', '#', :'data-clear-form' => true, id: 'cancel', :class => 'button teamster-cancel-small')
+      = f.submit nil, :class => 'button teamster-go-small'
   .large-3.columns

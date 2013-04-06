@@ -7,6 +7,8 @@
 #  time           :datetime
 #  opponent       :text
 #  location       :text
+#  latitude       :float            default(0.0)
+#  longitude      :float            default(0.0)
 #  win            :boolean
 #  points_for     :integer
 #  points_against :integer
@@ -18,11 +20,11 @@
 #
 
 class Game < ActiveRecord::Base
-  attr_accessible :date, :time, :opponent, :location, :invited, :attending, :declined, :win, :points_for, :points_against, :comments
+  attr_accessible :date, :time, :opponent, :location, :latitude, :longitude, :invited, :attending, :declined, :win, :points_for, :points_against, :comments
   belongs_to :team
   belongs_to :competition
   has_many :attendees
-  # before_save :geocode
+  before_save :geocode
 
   def self.open_spreadsheet(file)
     case File.extname(file.original_filename)
@@ -47,13 +49,13 @@ class Game < ActiveRecord::Base
     games
   end
 
-  # private
-  # def geocode
-  # result = Geocoder.search(self.address).first
-  # if result.present?
-  #   self.latitude = result.latitude
-  #   self.longitude = result.longitude
-  # end
-  # end
+  private
+  def geocode
+  result = Geocoder.search(self.location).first
+  if result.present?
+    self.latitude = result.latitude
+    self.longitude = result.longitude
+  end
+  end
 
 end

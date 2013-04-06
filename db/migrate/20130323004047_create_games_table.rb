@@ -5,6 +5,8 @@ class CreateGamesTable < ActiveRecord::Migration
       t.datetime :time
       t.text :opponent
       t.text :location
+      t.float :latitude, :default => 0
+      t.float :longitude, :default => 0
       t.boolean :win
       t.integer :points_for
       t.integer :points_against
@@ -12,6 +14,6 @@ class CreateGamesTable < ActiveRecord::Migration
       t.integer :competition_id
       t.integer :team_id
       t.timestamps
+    end
   end
-end
 end

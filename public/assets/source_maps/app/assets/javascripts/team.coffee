@@ -1,14 +1,19 @@
-class Home
-  @document_ready: ->
-    $('#form').on('click', 'a[data-clear-form]', Home.clear_form)
-    $('#teamlist').on('click', 'a[data-select-team]', Home.select_team)
+window.app =
+  document_ready: ->
+    $('#form').on('click', 'a[data-clear-form]', app.clear_form)
+    $('#teamlist').on('click', 'a[data-select-team]', app.select_team)
     $("a.reveal-link").trigger "click"
-    $(".draggable").draggable();
-    $("#droppable").droppable({ drop: Drop = (event, ui) ->
+    app.make_drag_drop()
+
+  make_drag_drop: ->
+    $(".draggable").draggable()
+    $("#droppable").droppable({ drop: (event, ui) ->
+
       user_id = ui.draggable.find("img").attr("id")
       game_id = $(".game").data("game-id")
       token = $("#droppable").data("auth-token")
       console.log(user_id, game_id, token)
+
       $(this).addClass("ui-state-highlight").find("p").html "Players added!"
       $.ajax(
         dataType: "script"
@@ -18,14 +23,14 @@ class Home
           authenticity_token: token
           user_id: user_id
           game_id: game_id
-      ).done()
-     });
+      )
+    })
 
-  @clear_form: (e) ->
+  clear_form: (e) ->
     e.preventDefault()
     $('#form').slideUp()
 
-  @select_team: (e) ->
+  select_team: (e) ->
     e.preventDefault()
     team = $(this).data('select-team')
     settings =
@@ -35,8 +40,4 @@ class Home
       data: {team_name: team}
     $.ajax(settings)
 
-
-$(document).ready(Home.document_ready)
-
-
-
+$(document).ready(app.document_ready)

@@ -4,8 +4,8 @@ Game.delete_all
 Competition.delete_all
 Attendee.delete_all
 
-u1 = User.create(name: 'nicky', email: 'nickyhughes00@gmail.com', phone: '+13476091301', gender: 'female', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'cheesecake1.jpeg', current_team: 'Bubblebees')
-u2 = User.create(name: 'mandy', email: 'mandy@gmail.com', phone: '', gender: 'female', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'cheesecake1.jpeg', current_team: 'Bubblebees')
+u1 = User.create(name: 'nicky', email: 'nickyhughes00@gmail.com', phone: '+13476091301', gender: 'female', positions: 'GA, GS', password: 'a', password_confirmation: 'a', current_team: 'Bubblebees')
+u2 = User.create(name: 'mandy', email: 'mandy@gmail.com', phone: '', gender: 'female', positions: 'GA, GS', password: 'a', password_confirmation: 'a', current_team: 'Bubblebees')
 u3 = User.create(name: 'chris', email: 'chris@gmail.com', phone: '', gender: 'female', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'chris.JPG', current_team: 'Bubblebees')
 u4 = User.create(name: 'jane', email: 'jane@gmail.com', phone: '', gender: 'f', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'jane.JPG', current_team: 'Bubblebees')
 u5 = User.create(name: 'gemma', email: 'gemma@gmail.com', phone: '', gender: 'f', positions: 'GA, GS', password: 'a', password_confirmation: 'a', image: 'gemma.JPG', current_team: 'Bubblebees')
@@ -20,12 +20,12 @@ t2 = Team.create(team_name: 'Singapore Slings', sport: 'basketball', timezone: '
 
 c1 = Competition.create(name: 'Spring 2013', start_date: '2013-03-30', duration: '12')
 
-g1 = Game.create(time: '7.15pm', date: '2013-03-24', opponent: 'Guinness Girls', location: 'Sydney')
-g2 = Game.create(time: '7.15pm', date: 'Sunday 31st March 2013', opponent: 'Hooplahs', location: 'Sydney')
-g3 = Game.create(time: '7.15pm', date: 'Sunday 7th April 2013', opponent: 'Jackpots', location: 'Sydney')
-g4 = Game.create(time: '7.15pm', date: 'Sunday 14th April 2013', opponent: 'Hotshots', location: 'Sydney')
-g5 = Game.create(time: '7.15pm', date: 'Sunday 21st April 2013', opponent: 'Pilates World Champions', location: 'Sydney')
-g6 = Game.create(time: '7.15pm', date: 'Sunday 28th April 2013', opponent: 'Unbeatables', location: 'Sydney')
+g1 = Game.create(time: '7.15pm', date: '2013-03-24', opponent: 'Guinness Girls', location: '1 Reuss Street, Glebe, Sydney')
+g2 = Game.create(time: '7.15pm', date: 'Sunday 31st March 2013', opponent: 'Hooplahs', location: '1 Reuss Street, Glebe, Sydney')
+g3 = Game.create(time: '7.15pm', date: 'Sunday 7th April 2013', opponent: 'Jackpots', location: '1 Reuss Street, Glebe, Sydney')
+g4 = Game.create(time: '7.15pm', date: 'Sunday 14th April 2013', opponent: 'Hotshots', location: '1 Reuss Street, Glebe, Sydney')
+g5 = Game.create(time: '7.15pm', date: 'Sunday 21st April 2013', opponent: 'Pilates World Champions', location: '1 Reuss Street, Glebe, Sydney')
+g6 = Game.create(time: '7.15pm', date: 'Sunday 28th April 2013', opponent: 'Unbeatables', location: '1 Reuss Street, Glebe, Sydney')
 
 
 u3.teams = [t1, t2]

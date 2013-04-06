@@ -1,5 +1,5 @@
 = 'Players'
 %hr
 -@selected.first.users.each do |user|
-  .draggable.ui-widget-content.has_tip= image_tag(user.image, :id => "#{user.id}", :'data-tooltip' => true, :title => user.name)
+  .draggable.ui-widget-content= image_tag(user.image, :id => "#{user.id}")
 

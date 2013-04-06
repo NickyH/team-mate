@@ -1,0 +1,13 @@
+= form_for @game, result_games_path, :remote => true do |f|
+  = f.label 'Win?'
+  = f.text_field :win
+  = f.label :points_for
+  = f.text_field :points_for
+  = f.label :points_against
+  = f.text_field :points_against
+  = f.label :comments
+  = f.text_field :comments
+  = f.hidden_field :team_name, @auth.current_team
+  = link_to('Cancel', '#', :'data-clear-form' => true, id: 'cancel', :class => 'button teamster-cancel-small')
+  = f.submit 'Import', :class => 'button teamster-go-small'
+

@@ -13,6 +13,7 @@ TeamMate::Application.routes.draw do
   resources :games do
     collection do
       post :import
+      post :result
       post :invite_player
     end
   end
@@ -26,6 +27,7 @@ TeamMate::Application.routes.draw do
 
   resources :users do
     collection do
+      get 'txtform'
       post 'sendtxt'
     end
   end

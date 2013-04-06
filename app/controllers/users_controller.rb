@@ -27,10 +27,10 @@ class UsersController < ApplicationController
     password = params[:password]
     password_confirmation = params[:password_confirmation]
     current_team = @auth.current_team
-    @user = User.create(name: name, phone: phone, email: email, password: password, password_confirmation: password_confirmation, current_team: current_team, is_manager: true)
+    @newuser = User.create(name: name, phone: phone, email: email, password: password, password_confirmation: password_confirmation, current_team: current_team, is_manager: false)
     team = Team.where(:team_name => current_team)
-    @user.teams << team
-    @user.save
+    @newuser.teams << team
+    @newuser.save
   end
   def edit
     @user = @auth
@@ -46,5 +46,6 @@ class UsersController < ApplicationController
     client.account.sms.messages.create(:from => '+16468635581', :to => user.phone, :body => body)
     redirect_to(teams_path)
   end
-
+  def txtform
+  end
 end

@@ -8,7 +8,7 @@
 #  phone           :string(255)
 #  gender          :string(255)
 #  password_digest :string(255)
-#  other_teams     :text
+#  current_team    :text
 #  positions       :text
 #  image           :text
 #  team_id         :integer

@@ -7,9 +7,23 @@ class TeamsController < ApplicationController
     @team = Team.new
     @user = User.new
     @selected = Team.where(:team_name => @auth.current_team)
-    # if @selected == nil && !@auth.teams.nil?
-    #   @selected = [@auth.teams.first] || nil
-    # end
+    future_games = []
+    @selected.first.games.each do |game|
+      if game.date >= Date.today
+        future_games << game
+        @future_games = future_games.sort
+      end
+    if !@future_games.nil?
+      @next_game = @future_games.first
+    end
+    end
+    @added_to_list = @next_game.attendees
+    all_players = User.where(:team_id => @selected.first.id)
+    all_user_id = all_players.map(&:id)
+    @invited_user_id = @added_to_list.map(&:user_id).uniq
+    @not_yet_invited = all_user_id - @invited_user_id
+    @not_invited = User.where(:id => @not_yet_invited)
+    @invited = User.where(:id => @invited_user_id)
   end
   def edit
     @team = Team.find(params[:id])

@@ -2,7 +2,7 @@
   .navlinks= link_to 'Edit Profile', edit_user_path(@auth), :remote => true
   - if @auth.name == @selected.first.manager
     .navlinks= link_to 'Create New Team', new_team_path, :remote => true
-    .navlinks= link_to 'Add a Player', new_player_users_path(@auth), :remote => true
+    .navlinks= link_to 'Add a Player', new_player_users_path, :remote => true
     .navlinks= link_to 'Add Games', new_game_path, :remote => true
   - if @auth.present?
     .navlinks.logout= link_to(@auth.email, login_path, :method => :delete, :confirm => "Logout?")
@@ -14,8 +14,6 @@
     = render(:partial => 'teamlist')
   #game-panel
     = render :partial => 'teams/game'
-
-#invited_players
 
 / =form_for @user, sendtxt_users_path do |f|
 /   =f.text_field :body

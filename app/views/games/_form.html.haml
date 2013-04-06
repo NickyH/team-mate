@@ -4,6 +4,6 @@
   = label_tag 'Import roster'
   = file_field_tag :file
   = hidden_field_tag :team_name, @auth.current_team
-  = link_to('Cancel', '#', :'data-clear-form' => true, id: 'cancel', :class => 'button tiny radius alert')
-  = submit_tag 'Import', :class => 'button tiny radius success'
+  = link_to('Cancel', '#', :'data-clear-form' => true, id: 'cancel', :class => 'button teamster-cancel-small')
+  = submit_tag 'Import', :class => 'button teamster-go-small'
 
